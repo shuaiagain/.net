@@ -8,6 +8,6 @@
 ### [4.自学MVC看这里——全网最全ASP.NET MVC 教程汇总](http://www.cnblogs.com/powertoolsteam/p/MVC_knowledge.html)
 
 ### [5.Web API 强势入门指南](https://www.cnblogs.com/guyun/p/4589115.html)
-
-精通C#开发语言，熟悉.NET系统架构，熟练掌握MVC、WebForm、WebAPI框架、WebService等并有实际的项目开发经验
-熟练使用MVC、WebAPI框架，熟悉WebService、WCF
+### 6.要求掌握：
+        精通C#开发语言，熟悉.NET系统架构，熟练掌握MVC、WebForm、WebAPI框架、WebService等并有实际的项目开发经验  
+        熟练使用MVC、WebAPI框架，熟悉WebService、WCF
