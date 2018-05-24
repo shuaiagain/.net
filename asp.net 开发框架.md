@@ -9,5 +9,5 @@
 
 ### [5.Web API 强势入门指南](https://www.cnblogs.com/guyun/p/4589115.html)
 ### 6.要求掌握：
-        精通C#开发语言，熟悉.NET系统架构，熟练掌握MVC、WebForm、WebAPI框架、WebService等并有实际的项目开发经验  
+        精通C#开发语言，熟悉.NET系统架构，熟练掌握MVC、WebForm、WebAPI框架、WebServic等并有实际的项目开发经验  
         熟练使用MVC、WebAPI框架，熟悉WebService、WCF
