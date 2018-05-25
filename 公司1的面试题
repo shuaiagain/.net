@@ -29,6 +29,13 @@ name   course   score
 王五    数学     70
 王五    英语     90
 
+答：
+select name from Score s where s.score >=80 group by name 
+having COUNT(name) = (select COUNT(1) from ( select course from Score s group by course)xx) 
+或者
+select name from Score s where s.score >=80 group by name 
+having COUNT(name) = (select top 1 COUNT(course) from Score s group by course) 
+
 11.线程池和程序池的用处和优点（这个真的不知道）
 
 12.$.get()/$getJson()/$.post()方法的区别（没用过$.getJson）
