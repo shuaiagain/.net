@@ -54,3 +54,6 @@ having COUNT(name) = (select top 1 COUNT(course) from Score s group by course)
 请写出这个商品编号是多少，计算步骤  
 
 19.c#中缓存的应用
+
+20.equals 和 == 的区别
+https://www.cnblogs.com/souliid/p/5718968.html
