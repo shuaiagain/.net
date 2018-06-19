@@ -12,7 +12,7 @@ namespace mvcTwo.Controllers
 {
     public class EmployeeController : Controller
     {
-        // GET: Test
+
         #region Index
         //[Authorize]
         public ActionResult Index()
@@ -58,7 +58,13 @@ namespace mvcTwo.Controllers
         #region AddNew
         public ActionResult AddNew()
         {
-            return View("CreateEmployee", new CreateEmployeeViewModel());
+            CreateEmployeeViewModel employeeListViewModel = new CreateEmployeeViewModel();
+
+            employeeListViewModel.FooterData = new FooterViewModel();
+            employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";
+            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            employeeListViewModel.UserName = User.Identity.Name; 
+            return View("CreateEmployee", employeeListViewModel);
         }
         #endregion
 
@@ -115,9 +121,8 @@ namespace mvcTwo.Controllers
             {
                 return new EmptyResult();
             }
-        } 
+        }
         #endregion
-
 
         #region GetView
         public ActionResult GetView()
@@ -151,7 +156,11 @@ namespace mvcTwo.Controllers
         }
         #endregion
 
-        #region Test
+        #region 给string类型添加扩展方法
+        /// <summary>
+        /// 给string类型添加扩展方法
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Test()
         {
 
@@ -176,7 +185,11 @@ namespace mvcTwo.Controllers
         }
         #endregion
 
-        #region TestEmpty
+        #region 测试函数的默认视图是否和函数名一样
+        /// <summary>
+        /// 测试函数的默认视图是否和函数名一样
+        /// </summary>
+        /// <returns></returns>
         public ActionResult TestEmpty()
         {
             return View();
