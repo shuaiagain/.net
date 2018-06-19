@@ -1,0 +1,16 @@
+﻿################################################################################
+# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
+################################################################################
+
+/.net相关/mvc/BusinessEntities/bin/Debug
+/.net相关/mvc/.vs/config
+/.net相关/mvc/DataAccessLayer/bin/Debug
+/.net相关/mvc/BusinessEntities/obj/Debug/BusinessEntities.csproj.FileListAbsolute.txt
+/.net相关/mvc/BusinessEntities/obj/Debug/BusinessEntities.dll
+/.net相关/mvc/BusinessEntities/obj/Debug/BusinessEntities.pdb
+/.net相关/mvc/DataAccessLayer/obj/Debug/DataAccessLayer.csproj.FileListAbsolute.txt
+/.net相关/mvc/DataAccessLayer/obj/Debug/DataAccessLayer.csprojResolveAssemblyReference.cache
+/.net相关/mvc/DataAccessLayer/obj/Debug/DataAccessLayer.dll
+/.net相关/mvc/DataAccessLayer/obj/Debug/DataAccessLayer.pdb
+/.net相关/mvc/packages
+/.net相关/mvc/mvcTwo/obj/Debug/mvcTwo.csprojResolveAssemblyReference.cache
