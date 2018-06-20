@@ -15,6 +15,7 @@ namespace mvcTwo.Controllers
 
         #region Index
         //[Authorize]
+        [HeaderFooterFilter]
         public ActionResult Index()
         {
 
@@ -44,26 +45,26 @@ namespace mvcTwo.Controllers
             employeeListViewModel.Employees = empViewModels;
 
             //employeeListViewModel.UserName = "Admin";
-            employeeListViewModel.UserName = User.Identity.Name;
-
-            //footer 页脚
-            employeeListViewModel.FooterData = new FooterViewModel();
-            employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
-            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name;
+            ////footer 页脚
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
 
             return View("Index", employeeListViewModel);
         }
         #endregion
 
         #region AddNew
+        [HeaderFooterFilter]
         public ActionResult AddNew()
         {
             CreateEmployeeViewModel employeeListViewModel = new CreateEmployeeViewModel();
 
-            employeeListViewModel.FooterData = new FooterViewModel();
-            employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";
-            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
-            employeeListViewModel.UserName = User.Identity.Name; 
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name; 
             return View("CreateEmployee", employeeListViewModel);
         }
         #endregion

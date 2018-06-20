@@ -7,30 +7,55 @@ using System.Web.Mvc;
 
 using System.IO;
 using mvcTwo.ViewModels;
+using mvcTwo.Filters;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace mvcTwo.Controllers
 {
-    public class BulkUploadController : Controller
+    //public class BulkUploadController : Controller
+    public class BulkUploadController : AsyncController
     {
 
+        [HeaderFooterFilter]
         public ActionResult Index()
         {
             return View(new FileUploadViewModel());
         }
 
         #region Upload
-        public ActionResult Upload(FileUploadViewModel model)
+
+        [HandleError]
+        public async Task<ActionResult> Upload(FileUploadViewModel model)
         {
 
-            List<Employee> employees = GetEmployees(model);
-            EmployeeBusinessLayer emBo = new EmployeeBusinessLayer();
+            int t2 = Thread.CurrentThread.ManagedThreadId;
+            List<Employee> employees = await Task.Factory.StartNew<List<Employee>>(() => GetEmployees(model));
 
-            emBo.UploadEmployees(employees);
+            int t3 = Thread.CurrentThread.ManagedThreadId;
+            EmployeeBusinessLayer emBL = new EmployeeBusinessLayer();
+
+            emBL.UploadEmployees(employees);
 
             return RedirectToAction("Index", "Employee");
         }
         #endregion
 
+
+        #region Upload
+        //public ActionResult Upload(FileUploadViewModel model)
+        //{
+
+        //    List<Employee> employees = GetEmployees(model);
+        //    EmployeeBusinessLayer emBo = new EmployeeBusinessLayer();
+
+        //    emBo.UploadEmployees(employees);
+
+        //    return RedirectToAction("Index", "Employee");
+        //}
+        #endregion
+
+        #region GetEmployees
         public List<Employee> GetEmployees(FileUploadViewModel model)
         {
 
@@ -39,7 +64,7 @@ namespace mvcTwo.Controllers
             StreamReader csvReader = new StreamReader(model.fileUpload.InputStream);
             csvReader.ReadLine();
 
-            while (csvReader.EndOfStream)
+            while (!csvReader.EndOfStream)
             {
 
                 var line = csvReader.ReadLine();
@@ -54,5 +79,7 @@ namespace mvcTwo.Controllers
 
             return employees;
         }
+        #endregion
+
     }
 }
