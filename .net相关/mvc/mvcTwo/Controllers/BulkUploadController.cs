@@ -24,7 +24,6 @@ namespace mvcTwo.Controllers
         }
 
         #region Upload
-
         [HandleError]
         public async Task<ActionResult> Upload(FileUploadViewModel model)
         {
