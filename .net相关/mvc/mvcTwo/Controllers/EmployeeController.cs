@@ -7,6 +7,7 @@ using mvcTwo.Models;
 using mvcTwo.ViewModels;
 
 using mvcTwo.Filters;
+using BusinessEntities;
 
 namespace mvcTwo.Controllers
 {
@@ -180,7 +181,7 @@ namespace mvcTwo.Controllers
             });
 
             emList.Employees = emViewList;
-
+            
             //测试string的扩展功能
             ViewBag.Name = "12  \n \t \r3456".TrimBlank();
             return View(emList);
