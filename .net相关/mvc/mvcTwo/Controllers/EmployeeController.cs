@@ -16,7 +16,8 @@ namespace mvcTwo.Controllers
         #region Index
         //[Authorize]
         [HeaderFooterFilter]
-        public ActionResult Index()
+        [Route("Employee/List/{id}")]
+        public ActionResult Index(string id)
         {
 
 

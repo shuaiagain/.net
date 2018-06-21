@@ -13,11 +13,12 @@ namespace mvcTwo
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
                 name:"Upload",
                 url:"Employee/BulkUpload",
-                defaults: new { controller="BulkUpload",action=""}
+                defaults: new { controller="BulkUpload",action="Index"}
                 );
 
             routes.MapRoute(
