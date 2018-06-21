@@ -1,0 +1,29 @@
+﻿@using mvcTwo.ViewModels
+@model EmployeeListViewModel
+@{
+    Layout = null;
+    string name = ViewBag.Name as string;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        <h2>@name</h2>
+
+        @{
+            @:<ul>
+                foreach (EmployeeViewModel item in Model.Employees)
+                {
+                    @:<li>@item.UserName</li>
+                }
+            @:</ul>
+        }
+    </div>
+</body>
+</html>
