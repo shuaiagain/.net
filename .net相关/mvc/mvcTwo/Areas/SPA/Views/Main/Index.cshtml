@@ -6,6 +6,27 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Employee Single Page Application</title>
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+
+    <link href="~/Content/themes/base/base.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/dialog.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/button.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/accordion.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/core.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/draggable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/theme.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/tabs.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/slider.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/menu.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/progressbar.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/selectable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/selectmenu.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/resizable.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/spinner.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/tooltip.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/autocomplete.css" rel="stylesheet" />
 </head>
 <body>
     <div style="text-align:right">
@@ -13,9 +34,39 @@
         <a href="/Authentication/Logout">Logout</a>
     </div>
     <div>
-        @Html.Action("EmployeeList","Main")
+        @Html.Action("EmployeeList", "Main")
     </div>
-    <br/>
+    <br />
     @Html.Partial("Footer", Model.FooterData)
+
+    <script type="text/javascript">
+        function OpenAddNew() {
+            $.get("/SPA/Main/AddNew").then(
+                 function (r) {
+                     $("<div id='DivCreateEmployee'></div>").html(r).
+                         dialog({
+                             width: 'auto', height: 'auto', modal: true, title: "Create New Employee",
+                             close: function () {
+                                 $('#DivCreateEmployee').remove();
+                             }
+                         });
+                 });
+        }
+
+
+        function OpenBulkUpload() {
+
+            $.get("/SPA/SpaBulkUpload/Index").then(
+
+                function (r) {
+                    $("<div id='DivBulkUpload'></div>").html(r).dialog({
+                        width: 'auto', height: 'auto', modal: true, title: "Create New Employee",
+                        close: function () {
+                            $('#DivBulkUpload').remove();
+                        }
+                    });
+                });
+        }
+    </script>
 </body>
 </html>
