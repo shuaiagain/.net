@@ -11,3 +11,5 @@
 ### 6.要求掌握：
         精通C#开发语言，熟悉.NET系统架构，熟练掌握MVC、WebForm、WebAPI框架、WebServic等并有实际的项目开发经验  
         熟练使用MVC、WebAPI框架，熟悉WebService、WCF
+
+### [7.Mysql各个版本下载](http://ftp.ntu.edu.tw/MySQL/Downloads/)
