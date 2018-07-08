@@ -7,6 +7,7 @@ using mvcTwo.Models;
 using mvcTwo.ViewModels;
 
 using mvcTwo.Filters;
+using BusinessEntities;
 
 namespace mvcTwo.Controllers
 {
@@ -15,7 +16,9 @@ namespace mvcTwo.Controllers
 
         #region Index
         //[Authorize]
-        public ActionResult Index()
+        [HeaderFooterFilter]
+        [Route("Employee/List/{id}")]
+        public ActionResult Index(string id)
         {
 
 
@@ -44,26 +47,26 @@ namespace mvcTwo.Controllers
             employeeListViewModel.Employees = empViewModels;
 
             //employeeListViewModel.UserName = "Admin";
-            employeeListViewModel.UserName = User.Identity.Name;
-
-            //footer 页脚
-            employeeListViewModel.FooterData = new FooterViewModel();
-            employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
-            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name;
+            ////footer 页脚
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";//Can be set to dynamic value
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
 
             return View("Index", employeeListViewModel);
         }
         #endregion
 
         #region AddNew
+        [HeaderFooterFilter]
         public ActionResult AddNew()
         {
             CreateEmployeeViewModel employeeListViewModel = new CreateEmployeeViewModel();
 
-            employeeListViewModel.FooterData = new FooterViewModel();
-            employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";
-            employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
-            employeeListViewModel.UserName = User.Identity.Name; 
+            //employeeListViewModel.FooterData = new FooterViewModel();
+            //employeeListViewModel.FooterData.CompanyName = "StepByStepSchools";
+            //employeeListViewModel.FooterData.Year = DateTime.Now.Year.ToString();
+            //employeeListViewModel.UserName = User.Identity.Name; 
             return View("CreateEmployee", employeeListViewModel);
         }
         #endregion
@@ -178,7 +181,7 @@ namespace mvcTwo.Controllers
             });
 
             emList.Employees = emViewList;
-
+            
             //测试string的扩展功能
             ViewBag.Name = "12  \n \t \r3456".TrimBlank();
             return View(emList);

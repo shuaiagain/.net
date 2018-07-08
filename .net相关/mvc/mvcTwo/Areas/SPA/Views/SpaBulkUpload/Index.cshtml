@@ -1,0 +1,40 @@
+﻿
+<script type="text/javascript">
+
+    function Upload() {
+        debugger;
+        var fd = new FormData();
+        var file = $('#MyFileUploader')[0];
+        fd.append("fileUpload", file.files[0]);
+
+        $.ajax({
+            url: "/Spa/SpaBulkUpload/Upload",
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: fd
+        }).then(function (e) {
+            
+            for (i = 0; i < e.Employees.length; i++) {
+                var newTr = $('<tr></tr>');
+                var nameTD = $('<td></td>');
+                var salaryTD = $('<td></td>');
+
+                nameTD.text(e.Employees[i].EmployeeName);
+                salaryTD.text(e.Employees[i].Salary);
+
+                salaryTD.css("background-color", e.Employees[i].SalaryColor);
+
+                newTr.append(nameTD);
+                newTr.append(salaryTD);
+
+                $('#EmployeeTable').append(newTr);
+            }
+            $('#DivBulkUpload').dialog('close');
+        });
+    }
+</script>
+<div>
+    Select File : <input type="file" name="fileUpload" id="MyFileUploader" value="" />
+    <input type="submit" name="name" value="Upload" onclick="Upload();" />
+</div>

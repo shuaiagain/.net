@@ -1,0 +1,88 @@
+﻿@using mvcTwo.Models
+@using mvcTwo.ViewModels
+@*@model Employee*@
+@model EmployeeListViewModel
+@{
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+
+    Employee emp = ViewData["Employee"] as Employee;
+    Employee myEm = ViewBag.MyEmployee as Employee;
+}
+
+@*<!DOCTYPE html>*@
+
+@*<html>*@
+@section TitleSection{
+    MyView
+}
+@*<head>
+        <meta name="viewport" content="width=device-width" />
+        <title>MyView</title>
+        <style type="text/css">
+            body {
+                width: 800px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>*@
+
+@section ContentBody{
+    <div>
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
+
+        <table border="1">
+
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeeViewModel item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+
+@*<body>
+        <div>hello,@Model.UserName<a href="/Authentication/logout">退出</a></div>
+        @{
+            Html.RenderAction("GetAddNewLink");
+        }
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Salary</th>
+            </tr>
+            @foreach (EmployeeViewModel item in Model.Employees)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td style="background-color:@item.SalaryColor">@item.Salary</td>
+                </tr>
+            }
+
+        </table>
+        <div style="border:1px solid #000; width:400px;height:50px;">
+            @{
+                string MyString = "My Simple String";
+            }
+            @MyString
+        </div>
+        <div style="border:1px solid #000; width:400px;height:50px;">
+            @{
+                string MyStringOne = "My Simple String";
+            }
+            @MvcHtmlString.Create(MyStringOne)
+        </div>
+        @{
+            Html.RenderPartial("Footer", Model.FooterData);
+        }
+    </body>*@
+
+@*</html>*@
