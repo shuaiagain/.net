@@ -13,3 +13,11 @@
 /.net相关/mvc/mvcTwo/obj/Debug/
 /.net相关/mvc/.vs/mvc/v14/.suo
 .net相关/mvc/mvcTwo/bin/*
+tools
+EntityFramework.zh-Hans.6.1.3
+Microsoft.AspNet.Identity.Core.2.2.1
+net45
+/.net相关/mvc1to6/packages/bootstrap.3.0.0
+Content
+Microsoft.AspNet.Mvc.zh-Hans.5.2.3
+/.net相关/mvc1to6/packages/*
