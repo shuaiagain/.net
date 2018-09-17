@@ -13,3 +13,6 @@
         熟练使用MVC、WebAPI框架，熟悉WebService、WCF
 
 ### [7.Mysql各个版本下载](http://ftp.ntu.edu.tw/MySQL/Downloads/)
+
+### [8.Orm之EntityFrameWork](https://www.cnblogs.com/VolcanoCloud/p/4517310.html)
+### [9.MVC5 + EF6 入门完整教程](http://www.cnblogs.com/miro/p/4030622.html)
