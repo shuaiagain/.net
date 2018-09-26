@@ -16,3 +16,5 @@
 
 ### [8.Orm之EntityFrameWork](https://www.cnblogs.com/VolcanoCloud/p/4517310.html)
 ### [9.MVC5 + EF6 入门完整教程](http://www.cnblogs.com/miro/p/4030622.html)
+
+### [高并发/多线程/orm(dapper)]
